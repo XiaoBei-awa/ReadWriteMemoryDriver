@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entry">
+      <UniqueIdentifier>{ea055650-6172-4984-9eab-45a889b1cdbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InfinityHook">
+      <UniqueIdentifier>{6329d507-5730-41de-9d5c-1419913b2853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InfinityHook\hde">
+      <UniqueIdentifier>{b14c2d08-e628-4758-a38e-4350df163a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks">
+      <UniqueIdentifier>{8cd2024d-d6b8-4cb9-a133-761ebc2bac4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{824b496f-bf0e-4641-84e1-150e0bb16f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OsVersion">
+      <UniqueIdentifier>{b9794984-2409-49a0-86f8-1596893e441c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MemoryLock">
+      <UniqueIdentifier>{8adca525-74ca-43cc-8b84-946843c5120e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="InfinityHook\hook.cpp">
+      <Filter>InfinityHook</Filter>
+    </ClCompile>
+    <ClCompile Include="InfinityHook\hde\hde64.cpp">
+      <Filter>InfinityHook\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="InfinityHook.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="mem.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryLock.cpp">
+      <Filter>MemoryLock</Filter>
+    </ClCompile>
+    <ClCompile Include="OSVersion.cpp">
+      <Filter>OsVersion</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="InfinityHook\defines.h">
+      <Filter>InfinityHook</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\headers.hpp">
+      <Filter>InfinityHook</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\hook.hpp">
+      <Filter>InfinityHook</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\imports.hpp">
+      <Filter>InfinityHook</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\utils.hpp">
+      <Filter>InfinityHook</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\hde\hde64.h">
+      <Filter>InfinityHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\hde\pstdint.h">
+      <Filter>InfinityHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook\hde\table64.h">
+      <Filter>InfinityHook\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="InfinityHook.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h" />
+    <ClInclude Include="mem.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryLock.h">
+      <Filter>MemoryLock</Filter>
+    </ClInclude>
+    <ClInclude Include="OSVersion.h">
+      <Filter>OsVersion</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
