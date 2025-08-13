@@ -17,3 +17,5 @@ Hook NtOpenFile Communicate with the R3<br/>
 4.FreeMemory: Similarly，use ZwFreeVirtualMemory function.<br/>
 5.LockMemory: Hook NtReadVirtualMemory Modify the buffer value to the previously locked value.<br/>
 If it helps you, could you please add me to your stars?
+
+InfinityHook from : https://github.com/zhutingxf/InfinityHookPro
