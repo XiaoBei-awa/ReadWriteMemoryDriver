@@ -13,7 +13,7 @@ Features Describes:<br/>
 Hook NtOpenFile Communicate with the R3<br/>
 1.GetProcessModuleBase: After Attach process,use ZwQueryVirtualMemory to query module information.<br/>
 2.ReadWriteMemory: Manually mapping physical memory to virtual memory, no Page Fault, can force read and write memory, but is inefficient.<br/>
-3.AllocateMemory：After Attach process,use ZwAllocateVirtualMemory function.<br/>
+3.AllocateMemory: After Attach process,use ZwAllocateVirtualMemory function.<br/>
 4.FreeMemory: Similarly，use ZwFreeVirtualMemory function.<br/>
 5.LockMemory: Hook NtReadVirtualMemory Modify the buffer value to the previously locked value.<br/>
 If it helps you, could you please add me to your stars?
