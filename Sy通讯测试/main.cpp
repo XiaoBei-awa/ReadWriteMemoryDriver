@@ -174,90 +174,11 @@ void MyRead3()
 	VirtualFree(MemoryBuffer, 0, MEM_RELEASE);
 }
 
-void CS2发光()
-{
-	HANDLE pid = ProcessNameGetProcessID(L"cs2.exe");
-	if (!SyDriver::SetTargetProcess(pid))
-		printf("设置进程失败\n");
-	ULONG64 module = SyDriver::GetModuleBase(L"client.dll");
-	printf("client.dll模块地址: %I64x\n", module);
-	if (SyDriver::LockMemoryR3(pid, module + 0x873CE7, 1))
-	{
-		printf("保护内存成功\n");
-	}
-	byte a = 132;
-	if (SyDriver::WriteMemory(module + 0x873CE7, &a, 1))
-	{
-		printf("写入数据内存成功\n");
-	}
-}
-
-void CS2循环()
-{
-	HANDLE pid = ProcessNameGetProcessID(L"cs2.exe");
-	if (!SyDriver::SetTargetProcess(pid))
-		printf("设置进程失败\n");
-	ULONG64 module = SyDriver::GetModuleBase(L"client.dll");
-	printf("client.dll模块地址: %I64x %d\n", module, ERRORCODE);
-
-	DWORD64 a = 0;
-	if (!SyDriver::ReadMemory(module + 0x0, &a, 8))
-	{
-		printf("错误信息: %X\n", ERRORCODE);
-	}
-
-	while (true)
-	{
-		Sleep(5);
-		// 获取对象链表入口地址
-		DWORD64 EntityListEntry = 0;
-		if (!SyDriver::ReadMemory(module + 0x1CBE620, &EntityListEntry, 8)) 
-		{
-			continue;
-		}
-		SyDriver::ReadMemory(EntityListEntry + 0x10, &EntityListEntry, 8);
-
-		for (int i = 0; i < 64; i++)
-		{
-			DWORD64 EntityAddress = 0;
-			SyDriver::ReadMemory(EntityListEntry + (i + 1) * 0x78, &EntityAddress, 8);
-			if (!EntityAddress) continue;
-
-			// 获取玩家Pawn
-			DWORD64 EntityPawnListEntry = 0;
-			DWORD64 EntityPawnAddress = 0;
-			DWORD Pawn = 0;
-
-			SyDriver::ReadMemory(EntityAddress + 0x8FC, &Pawn, 4);
-
-			SyDriver::ReadMemory(module + 0x1CBE620, &EntityPawnListEntry, 8);
-			SyDriver::ReadMemory(EntityPawnListEntry + 0x10 + 8 * ((Pawn & 0x7FFF) >> 9), &EntityPawnListEntry, 8);
-
-			SyDriver::ReadMemory(EntityPawnListEntry + 0x78 * (Pawn & 0x1FF), &EntityPawnAddress, 8);
-
-			// 获取坐标
-			struct D3D
-			{
-				float x;
-				float y;
-				float z;
-			};
-			D3D Pos{};
-
-			SyDriver::ReadMemory(EntityPawnAddress + 0x15B0, &Pos, 12);
-
-			std::cout << "坐标X:" << Pos.x << " 坐标Y:" << Pos.y << " 坐标Z:" << Pos.z << std::endl;
-		}
-		system("cls");
-	}
-}
-
-
-
 int main()
 {
     if (SyDriver::CallTest()) std::cout << "与驱动通讯成功!\n";
 	system("pause");
 	MyRead();
 	system("pause");
+
 }
